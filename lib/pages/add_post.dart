@@ -51,7 +51,7 @@ class _AddPostPageState extends State<AddPostPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orangeAccent,
+        backgroundColor: Colors.purpleAccent,
         title: Text("Add post"),
         centerTitle: true,
       ),
@@ -101,7 +101,6 @@ class _AddPostPageState extends State<AddPostPage> {
                 decoration: InputDecoration(
                   hintText: 'Passport raqami',
                 ),
-
               ),
               SizedBox(
                 height: 15,
@@ -111,7 +110,6 @@ class _AddPostPageState extends State<AddPostPage> {
                 decoration: InputDecoration(
                   hintText: 'JSHSHIR',
                 ),
-
               ),
               SizedBox(
                 height: 15,
@@ -119,17 +117,19 @@ class _AddPostPageState extends State<AddPostPage> {
               TextField(
                 controller: berilgansanaController,
                 decoration: InputDecoration(
-                  hintText: 'Berilgan sanasi',
+                  hintText: 'Berilgan sanasi     dd/mm/yyyy',
                 ),
-
               ),
               SizedBox(
                 height: 30,
               ),
               Container(
+                  decoration: BoxDecoration(
+                    color: Colors.purple,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   width: double.infinity,
                   height: 45,
-                  color: Colors.orange,
                   child: TextButton(
                     onPressed: () {
                       _addPost();

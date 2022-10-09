@@ -49,16 +49,13 @@ class _HomeState extends State<Home> {
               icon: Icon(Icons.logout)),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 20),
-        child: ListView.builder(
-            itemCount: item.length,
-            itemBuilder: (ctx, i) {
-              return itemOfList(item[i]);
-            }),
-      ),
+      body: ListView.builder(
+          itemCount: item.length,
+          itemBuilder: (ctx, i) {
+            return itemOfList(item[i]);
+          }),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.deepPurpleAccent,
+        backgroundColor: Colors.purple,
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.push(
@@ -85,29 +82,26 @@ class _HomeState extends State<Home> {
           SizedBox(
             height: 10,
           ),
-          Row(
-            children: [
-
-              Text(
-                post.familiya,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                post.ism,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                post.otasi,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ],
+          Text(
+            post.familiya,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            post.ism,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            post.otasi,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+
 
           SizedBox(
             height: 5,
