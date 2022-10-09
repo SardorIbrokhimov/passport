@@ -13,7 +13,7 @@ class RTDB {
     List<Post> items = [];
     // Query query = FirebaseDatabase.getInstance()
     Query _query =
-    _database.reference().child("posts").orderByChild("userId");
+    _database.reference().child("posts").orderByChild("userId").equalTo(id);
     var snapshot = await _query.once();
     var result = snapshot.value.values as Iterable;
 

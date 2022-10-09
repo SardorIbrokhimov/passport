@@ -80,7 +80,7 @@ class _HomeState extends State<Home> {
       padding: EdgeInsets.only(left: 20, bottom: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-      
+
         children: [
           SizedBox(
             height: 10,
@@ -89,23 +89,31 @@ class _HomeState extends State<Home> {
             children: [
 
               Text(
-                post.surname,
+                post.familiya,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 width: 10,
               ),
               Text(
-                post.name,
+                post.ism,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                post.otasi,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ],
           ),
+
           SizedBox(
             height: 5,
           ),
           Text(
-            post.content,
+          "Passport seriyasi : ${post.passseriya+post.passraqam}",
             style: TextStyle(
               fontSize: 17,
             ),
@@ -114,7 +122,16 @@ class _HomeState extends State<Home> {
             height: 5,
           ),
           Text(
-            post.date,
+            "JSHSHIR : ${post.jshsh}",
+            style: TextStyle(
+              fontSize: 17,
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            "Passport berilgan sana : ${post.berilgansana}",
             style: TextStyle(
               fontSize: 17,
             ),

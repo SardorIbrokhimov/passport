@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:passport/model/post.dart';
 import 'package:passport/pages/home_page.dart';
@@ -15,29 +14,37 @@ class AddPostPage extends StatefulWidget {
 }
 
 class _AddPostPageState extends State<AddPostPage> {
-  var nameController = TextEditingController();
-  var surnameController = TextEditingController();
-  var lastnameController = TextEditingController();
-  var dateController = TextEditingController();
-  var contentController = TextEditingController();
+  var ismController = TextEditingController();
+  var familiyaController = TextEditingController();
+  var otasiController = TextEditingController();
+  var passserController = TextEditingController();
+  var passraqController = TextEditingController();
+  var berilgansanaController = TextEditingController();
+  var JSHSHIRController = TextEditingController();
 
   _addPost() async {
-    String name1 = nameController.text.toString();
-    String surname1 = surnameController.text.toString();
-    String date1 = dateController.text.toString();
-    String content1 = contentController.text.toString();
+    String ism = ismController.text.toString();
+    String familiya = familiyaController.text.toString();
+    String otasi = otasiController.text.toString();
+    String passseriya = passserController.text.toString();
+    String passraqam = passraqController.text.toString();
+    String berilgansana = berilgansanaController.text.toString();
+    String JSHSHIR = JSHSHIRController.text.toString();
 
     String? userId = await Preference.getUserId();
     Post post1 = new Post(
-        userId: userId!,
-        name: name1,
-        surname: surname1,
-        content: content1,
-        date: date1);
+        ism: ism,
+        familiya: familiya,
+        otasi: otasi,
+        berilgansana: berilgansana,
+        jshsh: JSHSHIR,
+        passraqam: passraqam,
+        passseriya: passseriya,
+        userId: userId!);
 
     RTDB.addPost(post1).then((value) => {
-      Navigator.pushReplacementNamed(context, Home.id),
-    });
+          Navigator.pushReplacementNamed(context, Home.id),
+        });
   }
 
   @override
@@ -54,7 +61,7 @@ class _AddPostPageState extends State<AddPostPage> {
           child: Column(
             children: [
               TextField(
-                controller: nameController,
+                controller: ismController,
                 decoration: InputDecoration(
                   hintText: 'Ism',
                 ),
@@ -63,7 +70,7 @@ class _AddPostPageState extends State<AddPostPage> {
                 height: 15,
               ),
               TextField(
-                controller: surnameController,
+                controller: familiyaController,
                 decoration: InputDecoration(
                   hintText: 'Familiya',
                 ),
@@ -72,7 +79,7 @@ class _AddPostPageState extends State<AddPostPage> {
                 height: 15,
               ),
               TextField(
-                controller: lastnameController,
+                controller: otasiController,
                 decoration: InputDecoration(
                   hintText: 'Otasining ismi',
                 ),
@@ -80,9 +87,8 @@ class _AddPostPageState extends State<AddPostPage> {
               SizedBox(
                 height: 15,
               ),
-
               TextField(
-                controller: contentController,
+                controller: passserController,
                 decoration: InputDecoration(
                   hintText: 'Passport seriyasi',
                 ),
@@ -91,9 +97,29 @@ class _AddPostPageState extends State<AddPostPage> {
                 height: 15,
               ),
               TextField(
-                controller: dateController,
+                controller: passraqController,
                 decoration: InputDecoration(
                   hintText: 'Passport raqami',
+                ),
+
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              TextField(
+                controller: JSHSHIRController,
+                decoration: InputDecoration(
+                  hintText: 'JSHSHIR',
+                ),
+
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              TextField(
+                controller: berilgansanaController,
+                decoration: InputDecoration(
+                  hintText: 'Berilgan sanasi',
                 ),
 
               ),
@@ -109,7 +135,7 @@ class _AddPostPageState extends State<AddPostPage> {
                       _addPost();
                     },
                     child: Text(
-                      "Add",
+                      "Qo'shish",
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
                   )),
