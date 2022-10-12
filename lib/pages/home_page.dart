@@ -27,11 +27,11 @@ class _HomeState extends State<Home> {
   _apiGetPosts() async {
     String? userId = await Preference.getUserId();
     RTDB.getPosts(userId!).then((posts) => {
-      setState(() {
-        item.addAll(posts);
-      }),
-      print("Posts:${item.length}"),
-    });
+          setState(() {
+            item.addAll(posts);
+          }),
+          print("Posts:${item.length}"),
+        });
   }
 
   @override
@@ -69,16 +69,39 @@ class _HomeState extends State<Home> {
 
   Widget itemOfList(Post post) {
     return Container(
-      margin: EdgeInsets.all(15),
+      margin: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.purple,width: 2),
+        border: Border.all(color: Colors.purple, width: 2),
         borderRadius: BorderRadius.circular(20),
       ),
       padding: EdgeInsets.only(left: 20, bottom: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: 15,),
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                    color: Colors.black26,
+                    border: Border.all(color: Colors.purple)),
+                child: post.img_link != null
+                    ? Image.network(
+                        post.img_link,
+                        fit: BoxFit.cover,
+                      )
+                    : Center(
+                        child: Icon(
+                          Icons.person,
+                          size: 50,
+                        ),
+                      ),
+              ),
+            ],
+          ),
           SizedBox(
             height: 10,
           ),
@@ -93,7 +116,6 @@ class _HomeState extends State<Home> {
             post.ism,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-
           SizedBox(
             height: 5,
           ),
@@ -101,13 +123,11 @@ class _HomeState extends State<Home> {
             post.otasi,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-
-
           SizedBox(
             height: 5,
           ),
           Text(
-          "Passport seriyasi : ${post.passseriya+post.passraqam}",
+            "Passport seriyasi : ${post.passseriya + post.passraqam}",
             style: TextStyle(
               fontSize: 17,
             ),

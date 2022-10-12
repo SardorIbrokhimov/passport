@@ -52,7 +52,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepOrangeAccent,
+        backgroundColor: Colors.deepPurple,
         title:   Text(
           "Log In",
           style: TextStyle(fontSize: 25, color: Colors.white),
@@ -123,45 +123,13 @@ class _SignInState extends State<SignIn> {
                 SizedBox(
                   height: 20,
                 ),
-                Row(
-                  children: [
-                    Text(
-                      "By singing up you accept the ",
-                      style: TextStyle(fontSize: 15),
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        "term of service",
-                        style: TextStyle(fontSize: 15, color: Colors.deepOrangeAccent),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "and",
-                      style: TextStyle(fontSize: 15),
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        "Privacy Policy",
-                        style: TextStyle(fontSize: 15, color: Colors.deepOrangeAccent),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
+
                 Container(
                   padding: EdgeInsets.only(left: 10, right: 10),
                   height: 50,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.orange,
+                    color: Colors.deepPurpleAccent,
                     borderRadius: BorderRadius.circular(22),
                   ),
                   child: TextButton(
@@ -184,7 +152,7 @@ class _SignInState extends State<SignIn> {
                       },
                       child: Text(
                         "Sign Up",
-                        style: TextStyle(color: Colors.deepOrangeAccent),
+                        style: TextStyle(fontSize:20,color: Colors.deepPurple),
                       ),
                     ),
                     SizedBox(

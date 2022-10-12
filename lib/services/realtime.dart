@@ -11,7 +11,6 @@ class RTDB {
 
   static Future<List<Post>> getPosts(String id) async {
     List<Post> items = [];
-    // Query query = FirebaseDatabase.getInstance()
     Query _query =
     _database.reference().child("posts").orderByChild("userId").equalTo(id);
     var snapshot = await _query.once();
