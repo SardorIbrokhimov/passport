@@ -20,6 +20,7 @@ class AddPostPage extends StatefulWidget {
 class _AddPostPageState extends State<AddPostPage> {
   bool isloading = false;
   DateTime date = DateTime.now();
+  DateTime _date = DateTime.now();
   var year = DateTime.now().year;
   File? _image;
   final pickimg = ImagePicker();
@@ -135,6 +136,20 @@ class _AddPostPageState extends State<AddPostPage> {
         });
   }
 
+  selectdate() {
+    showDatePicker(
+        context: context,
+        initialDate: date,
+        firstDate: DateTime(1900),
+        lastDate: DateTime(year)).then((value) => {
+          setState((){
+            _date=value!;
+            berilgansanaController.text="${_date.day}.${_date.month}.${_date.year}";
+
+          }),
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -227,13 +242,7 @@ class _AddPostPageState extends State<AddPostPage> {
                 controller: berilgansanaController,
                 decoration: InputDecoration(
                   suffixIcon: IconButton(
-                    onPressed: () async {
-                      DateTime? newDate = await showDatePicker(
-                          context: context,
-                          initialDate: date,
-                          firstDate: DateTime(1900),
-                          lastDate: DateTime(year));
-                    },
+                    onPressed: selectdate,
                     icon: Icon(Icons.date_range),
                   ),
                   hintText: 'Berilgan sanasi',
@@ -322,6 +331,4 @@ class _AddPostPageState extends State<AddPostPage> {
           );
         },
       );
-
-  selectdate() {}
 }
